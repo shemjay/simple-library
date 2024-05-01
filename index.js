@@ -8,6 +8,7 @@
 // Retrieve the JSON string from local storage. DONE!
 // Convert the JSON string back to an array of book objects. DONE!
 // Iterate over the library array and display book entries on the website.
+
 const bookForm = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
@@ -15,7 +16,11 @@ const bookPages = document.querySelector('#pages');
 const bookRead = document.querySelector('#read');
 const bookStars = document.querySelectorAll('.stars')
 const submitBtn = document.querySelector('#submit');
+const formDialog = document.querySelector(".modal-dialog");
 const clearBtn = document.querySelector('#clear');
+const closeBtn = document.querySelector('#close');
+const newBtn = document.querySelector('#new');
+const bookGrid = document.querySelector('.book-grid');
 const myLibrary = [];
 
 //Book object constructor
@@ -46,7 +51,9 @@ bookForm.addEventListener('submit', (e) => {
 
   createInstance(title, author, numOfPages, status, starRating)
 
-  convertLibrary()
+  storeLibrary()
+
+  populateGrid()
   
   bookForm.reset();
   
@@ -66,7 +73,7 @@ function storeLibrary() {
   });
 }
 
-//Retrieving entried from local storage and place them in new array
+//Retrieving entries from local storage and place them in new array
 function retrieveLibrary() {
   const storedBooks = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -80,11 +87,35 @@ function retrieveLibrary() {
   return storedBooks;
 }
 
-clearBtn.addEventListener('click', localStorage.clear)
+function populateGrid() {
+  const storedBooks = retrieveLibrary();
 
+  storedBooks.forEach(Book => {
+    const bookGridItem = document.createElement('div');
+    bookGridItem.classList.add('grid-item');
+  
+    bookGridItem.innerHTML = `
+    <h2>${Book.title}</h2>
+    <p>Author: ${Book.author}</p>
+    <p>Pages: ${Book.numOfPages}</p>
+    <p>Status: ${Book.status ? 'Read' : 'Unread'}</p>
+    <p>Rating: ${Book.starRating}</p>
+  `;
+  
+    bookGrid.appendChild(bookGridItem);
+  })
+}
 
+clearBtn.addEventListener('click', function() {
+  localStorage.clear();
+});
 
+newBtn.addEventListener("click", () => {
+  formDialog.showModal();
+});
 
-
+closeBtn.addEventListener("click", () => {
+  formDialog.close();
+});
 
 

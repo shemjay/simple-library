@@ -1,0 +1,46 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: lightcoral;
+}
+
+.main {
+    border: 2px solid black;
+    max-width: 100%;
+    min-height: inherit;
+}
+
+.form-wrapper {
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
+
+.grid-item {
+    border: 2px solid black;
+    width: 300px;
+}
