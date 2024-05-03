@@ -40,7 +40,24 @@ nav {
     width: 400px;
 }
 
+
+
+.book-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 
+        repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+    padding: 20px;
+}
+
 .grid-item {
     border: 2px solid black;
-    width: 300px;
+    max-width: 250px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: pointer;
 }

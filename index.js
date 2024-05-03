@@ -7,7 +7,10 @@
 // Store the JSON string in local storage. DONE!
 // Retrieve the JSON string from local storage. DONE!
 // Convert the JSON string back to an array of book objects. DONE!
-// Iterate over the library array and display book entries on the website.
+// Iterate over the library array and display book entries on the website. DONE!
+//Make a function that will display the books according to the order they were added
+// Make the form fields not required except fot the title and then add default values for empty fields
+
 
 const bookForm = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
@@ -50,11 +53,8 @@ bookForm.addEventListener('submit', (e) => {
   });
 
   createInstance(title, author, numOfPages, status, starRating)
-
   storeLibrary()
-
   populateGrid()
-  
   bookForm.reset();
   
 })
@@ -67,7 +67,13 @@ function createInstance(title, author, numOfPages, status, starRating) {
 // Store entries in local storage
 function storeLibrary() {
   myLibrary.forEach((book, index) => {
-    const key = `book_${index}`;
+    let key = `book_${index}`;
+    // Check if key already exists
+    while (localStorage.getItem(key) !== null) {
+      // If key exists, generate a new key with a different index
+      index++;
+      key = `book_${index}`;
+    }
     const value = JSON.stringify(book);
     localStorage.setItem(key, value);
   });
@@ -88,19 +94,34 @@ function retrieveLibrary() {
 }
 
 function populateGrid() {
-  const storedBooks = retrieveLibrary();
+  const retrievedBooks = retrieveLibrary();
 
-  storedBooks.forEach(Book => {
+  retrievedBooks.reverse()
+  
+  retrievedBooks.forEach(Book => {
     const bookGridItem = document.createElement('div');
     bookGridItem.classList.add('grid-item');
   
-    bookGridItem.innerHTML = `
-    <h2>${Book.title}</h2>
-    <p>Author: ${Book.author}</p>
-    <p>Pages: ${Book.numOfPages}</p>
-    <p>Status: ${Book.status ? 'Read' : 'Unread'}</p>
-    <p>Rating: ${Book.starRating}</p>
-  `;
+    const titleNode = document.createElement('h2');
+    titleNode.textContent = Book.title;
+
+    const authorNode = document.createElement('p');
+    authorNode.textContent = `Author: ${Book.author}`;
+
+    const pagesNode = document.createElement('p');
+    pagesNode.textContent = `Pages: ${Book.numOfPages}`;
+
+    const statusNode = document.createElement('p');
+    statusNode.textContent = `Status: ${Book.status ? 'Read' : 'Unread'}`;
+
+    const ratingNode = document.createElement('p');
+    ratingNode.textContent = `Rating: ${Book.starRating}`;
+
+    bookGridItem.appendChild(titleNode);
+    bookGridItem.appendChild(authorNode);
+    bookGridItem.appendChild(pagesNode);
+    bookGridItem.appendChild(statusNode);
+    bookGridItem.appendChild(ratingNode);
   
     bookGrid.appendChild(bookGridItem);
   })
@@ -117,5 +138,11 @@ newBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   formDialog.close();
 });
+
+// Populate the grid when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  populateGrid();
+});
+
 
 
