@@ -14,6 +14,7 @@ h1, p {
 .wrapper {
     max-width: 100%;
     min-height: 100vh;
+    background-color: #F3ECE4;
 }
 
 nav {
@@ -22,25 +23,116 @@ nav {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    background-color: lightcoral;
+    background-color: #D84339;
 }
 
-.main {
-    border: 2px solid black;
-    max-width: 100%;
-    min-height: inherit;
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title {
+    color: #373234;
+}
+
+.btn {
+    padding: 10px;
+    border: 2px solid #E8DCCC;
+    background-color: #373234;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #E8DCCC;
+}
+
+.btn:hover {
+    background-color: #E8DCCC;
+    color: #373234;
+    border: 2px solid #373234;
+}
+
+.modal-dialog {
+    background: #373234;
+    padding: 0;
+    border-color: #D84339;
+    overflow: hidden;
 }
 
 .form-wrapper {
-    border: 2px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 400px;
+    color: #F3ECE4;
+    padding: 30px;
+    border-radius: 5px;
 }
 
+.form-wrapper label {
+    font-weight: bold;
+}
 
+.form-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 10px 20px 10px;
+}
+
+.form-title p {
+    margin-right: 30px;
+}
+
+.form-input {
+    display: block;
+    margin: 5px 0px 20px 0px;
+    padding: 10px 5px;
+    border: 2px solid #D84339;
+    border-radius: 5px;
+    width: 100%;
+    color: #F3ECE4;
+    font-size: 15px;
+    font-weight: bolder;
+    background-color: #373234;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.form-input:focus {
+    border: 2px solid #F3ECE4;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 10px 0px;
+}
+
+.checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 15px; 
+    height: 15px; 
+    border: 2px solid #F3ECE4; 
+    border-radius: 4px; 
+}
+
+.checkbox input[type="checkbox"]:checked {
+    background-color: #D84339; 
+}
+
+.submit {
+    margin-top: 10px;
+}
 
 .book-grid {
     display: grid;

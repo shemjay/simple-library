@@ -10,6 +10,8 @@
 // Iterate over the library array and display book entries on the website. DONE!
 //Make a function that will display the books according to the order they were added
 // Make the form fields not required except fot the title and then add default values for empty fields
+// Add function to toggle read status on the books prototype
+// Style the form
 
 
 const bookForm = document.querySelector('#book-form');
@@ -54,7 +56,7 @@ bookForm.addEventListener('submit', (e) => {
 
   createInstance(title, author, numOfPages, status, starRating)
   storeLibrary()
-  populateGrid()
+  location.reload(); //This is a temp fix
   bookForm.reset();
   
 })
