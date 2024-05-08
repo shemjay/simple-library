@@ -6,12 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='%23D84339'>
-    <path d='M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z'/>
-</svg>
-" type="image/svg+xml">
-
+  <link rel="icon" href="images/book-open-solid.svg">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Font -->
@@ -36,7 +31,8 @@
 
     <div>
       <button id="new" type="button" class="btn">Add New Entry</button>
-      <button id="clear" type="button" class="btn">Clear</button>
+      <button id="clear" type="button" class="btn">Clear All Entries</button>
+      <button id="test" type="button" class="btn">Add Test Data</button>
     </div>
     
   </nav>
@@ -55,13 +51,13 @@
         <form id="book-form" class="form" formmethod="dialog">
           
           <label for="title">Title</label>
-          <input type="text" class="form-input" id="title" name="title" placeholder="The Old Man and the Sea" required>
+          <input type="text" class="form-input" id="title" name="title" placeholder="The Old Man and the Sea">
     
           <label for="author">Author</label>
-          <input type="text" class="form-input" id="author" name="author" placeholder="Ernest Hemmingway" required>
+          <input type="text" class="form-input" id="author" name="author" placeholder="Ernest Hemmingway">
     
           <label for="pages">Pages</label>
-          <input type="number" class="form-input" id="pages" name="pages" placeholder="128" required>
+          <input type="number" class="form-input" id="pages" name="pages" placeholder="128">
     
           <div class="checkbox">
             <label for="read">Have you read this book?</label>
@@ -69,7 +65,7 @@
           </div>
     
           <fieldset class="rating">
-            <legend>Please rate:</legend>
+            <legend>Please rate</legend>
             <input type="radio" id="5" class="stars" name="rating" value="5"><label for="star5">5 stars</label>
             <input type="radio" id="4" class="stars" name="rating" value="4"><label for="star4">4 stars</label>
             <input type="radio" id="3" class="stars" name="rating" value="3"><label for="star3">3 stars</label>
@@ -88,6 +84,14 @@
     <div class="book-grid">
     </div>
   <!-- Grid End -->
+
+  <!-- Footer Start -->
+    <footer>
+      <div class="footer-content">
+        <p>Made with ❤️ by Shem</p>
+      </div>
+    </footer>
+  <!-- Footer End -->
 
   </div>
   <!-- Wrapper End -->

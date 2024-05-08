@@ -6,7 +6,7 @@ body, html {
     font-weight: 400;
 }
 
-h1, p {
+h1, h3, p {
     margin: 0;
     padding: 0;
 }
@@ -15,6 +15,7 @@ h1, p {
     max-width: 100%;
     min-height: 100vh;
     background-color: #F3ECE4;
+    overflow: hidden;
 }
 
 nav {
@@ -55,8 +56,13 @@ nav {
 .modal-dialog {
     background: #373234;
     padding: 0;
-    border-color: #D84339;
-    overflow: hidden;
+    border: none;
+    overflow: hidden; /* remove this when need to add more content to form */
+    border: 3px solid #D84339; /* move this to .form-wrapper and change border to none when need to add more content to form */
+}
+
+dialog::backdrop {
+    opacity: 0.9;
 }
 
 .form-wrapper {
@@ -67,7 +73,9 @@ nav {
     width: 400px;
     color: #F3ECE4;
     padding: 30px;
-    border-radius: 5px;
+    /* overflow-x: auto;
+    overflow-x: hidden; 
+    border: 2px solid #D84339; uncomment this when adding more fields to the form */
 }
 
 .form-wrapper label {
@@ -130,26 +138,115 @@ nav {
     background-color: #D84339; 
 }
 
+.rating {
+    border: 2px solid #D84339;
+    margin: 5px 0px;
+}
+
+.rating legend {
+    padding: 0px 10px;
+}
+
 .submit {
     margin-top: 10px;
 }
 
 .book-grid {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
     grid-template-columns: 
-        repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+        repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
     padding: 20px;
+    min-height: 100vh; /* Might cause problems later on */
 }
 
 .grid-item {
-    border: 2px solid black;
-    max-width: 250px;
-    padding: 10px;
+    font-size: 12px;
+    border: 1px solid black;
+    max-width: 150px;
+    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius: 5px;
-    cursor: pointer;
+    background:#E8DCCC;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    transition: 0.3s;
 }
+
+.grid-item:hover {
+    background-color: #373234;
+    color: #F3ECE4;
+}
+
+.grid-item h3, p {
+    padding-bottom: 10px;
+}
+
+.grid-item h3 {
+    font-weight: 400;
+}
+
+.author-container {
+    text-align: center;
+}
+
+.book-deleteBtn-container {
+    width: 100%;
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.book-title-container {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.book-title-container h3 {
+    padding: 0px;
+}
+
+.book-delete-btn {
+    padding: 2px 5px;
+    background: #F3ECE4;
+    cursor: pointer;
+    border: 1px solid #373234;
+}
+
+.book-delete-btn:hover {
+    background: #D84339;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-bottom: 10px;
+}
+
+.status-container p {
+    padding: 0px;
+}
+
+footer { 
+    left: 0;
+    bottom: 0;
+    background-color: #D84339;
+    color: #E8DCCC;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.footer-content p {
+    padding: 0px;
+}
+
+
