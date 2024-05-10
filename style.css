@@ -16,6 +16,7 @@ h1, h3, p {
     min-height: 100vh;
     background-color: #F3ECE4;
     overflow: hidden;
+    text-decoration: none;
 }
 
 nav {
@@ -151,19 +152,96 @@ dialog::backdrop {
     margin-top: 10px;
 }
 
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    left: -300px;
+    background: #373234;
+    color: #E8DCCC;
+    min-height: 100vh;
+    transition: 0.3s;
+    overflow-y: auto !important;
+}
+
+.side-close {
+    color: #D84339;
+}
+
+.sidebar p {
+    padding: 0px;
+}
+
+.sidebar header {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.side-open {
+    padding: 10px;
+}
+
+.sidebar header a {
+    border: 2px solid black;
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+.sidebar header a:hover {
+    background-color: #F3ECE4;
+}
+ 
+.sidebar-buttons {
+    display: flex;
+    gap: 1rem;
+    padding: 20px;
+    border-top: 2px solid #373234;
+    flex-wrap: wrap;
+}
+
+.sidebar ul {
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar ul li {
+    display: block;
+    max-width: 100%;
+    line-height: 25px;
+    padding: 20px;
+    pointer-events: none; /* REMOVE WHEN ADDING FUNCTIONALITY!*/
+    color:#8a8285; /* REMOVE WHEN ADDING FUNCTIONALITY!*/
+}
+.construction {
+    color: #D84339;
+    font-weight: bold;
+}
+
+.warning {
+    color: hsl(45, 100%, 50%) !important;
+}
+
 .book-grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: 
-        repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    padding: 40px;
     min-height: 100vh; /* Might cause problems later on */
 }
 
 .grid-item {
     font-size: 12px;
     border: 1px solid black;
-    max-width: 150px;
+    max-width: 180px;
+    height: 250px; 
     padding: 30px;
     display: flex;
     align-items: center;
@@ -204,6 +282,8 @@ dialog::backdrop {
 
 .book-title-container h3 {
     padding: 0px;
+    font-weight: bold;
+    color: #D84339;
 }
 
 .book-delete-btn {
@@ -249,4 +329,17 @@ footer {
     padding: 0px;
 }
 
+.footer-content a {
+    color:#F3ECE4;
+    text-decoration: none;
+}
 
+.footer-content a:hover {
+    color: #373234;
+}
+ 
+@media (max-width: 750px) {
+    .book-grid {
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); /* Adjusted min width for smaller screens */
+    }
+  }

@@ -20,7 +20,7 @@
     <!-- Nav Start -->
   <nav>
     <div class="nav-menu">
-      <a href="#"><i class="fa-solid fa-bars fa-lg" style="color: #373234;"></i></a>
+      <a href="#" class="side-open"><i class="fa-solid fa-bars fa-lg " style="color: #373234;"></i></a>
     </div>
 
     <div class="title-container">
@@ -31,12 +31,55 @@
 
     <div>
       <button id="new" type="button" class="btn">Add New Entry</button>
-      <button id="clear" type="button" class="btn">Clear All Entries</button>
-      <button id="test" type="button" class="btn">Add Test Data</button>
     </div>
     
   </nav>
   <!-- Nav End -->
+
+  <!-- Sidebar Start -->
+  <div class="sidebar">
+    <header>
+      <p>Additional Controls</p>
+      <a href="#" class="side-close"><i class="fa-solid fa-lg fa-xmark "></i></a>
+    </header>
+    <div class="sidebar-buttons">
+      <button id="clear" type="button" class="btn">Clear Test Data</button>
+      <button id="test" type="button" class="btn">Add Test Data</button>
+    </div>
+
+      <ul>
+        <li class="construction">
+          <i class="fa-solid fa-lg fa-down-long construction"></i>
+          <label for="sortAlphabetically"> UNDER CONSTRUCTION!</label>
+        </li>
+        <li>
+          <i class="fa-solid fa-lg fa-arrow-down-a-z"></i>
+          <input type="checkbox" id="sortAlphabetically">
+          <label for="sortAlphabetically">Sort Alphabetically</label>
+        </li>
+        <li>
+          <i class="fa-solid fa-lg fa-sort-up"></i>
+          <input type="checkbox" id="sortAscending">
+          <label for="sortByLastAdded">Sort in Ascending Order</label>
+        </li>
+        <li>
+          <i class="fa-solid fa-lg fa-sort-down"></i>
+          <input type="checkbox" id="sortDescending">
+          <label for="sortByLastAdded">Sort in Descending Order</label>
+        </li>
+        <li>
+          <i class="fa-solid fa-lg fa-star"></i>
+          <input type="checkbox" id="sortByRating">
+          <label for="sortByLastAdded">Sort by Rating</label>
+        </li>
+        <li class="warning">
+          <i class="fa-solid fa-lg fa-circle-exclamation warning"></i>
+          <label for="sortAlphabetically">Warning this site is in beta and using local storage for data storage</label>
+        </li>
+      </ul>
+
+  </div>
+  <!-- Sidebar End -->
 
   <!-- Main start -->
     <!-- Form Start -->
@@ -88,7 +131,7 @@
   <!-- Footer Start -->
     <footer>
       <div class="footer-content">
-        <p>Made with ❤️ by Shem</p>
+        <p>Made with ❤️ by <a href="https://github.com/shemjay" target="_blank">Shem</a></p>
       </div>
     </footer>
   <!-- Footer End -->
